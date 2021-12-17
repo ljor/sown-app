@@ -41,7 +41,7 @@ function App() {
     <div className="App">
       <Header userData={userData} handleLogout={handleLogoutClick}/>
       {/* <LoginForm handleLogin={handleLoginClick}/> */}
-      <RegisterForm handleRegister={handleRegisterClick}/>
+      {/* <RegisterForm handleRegister={handleRegisterClick}/> */}
       <Categories seedData={seedData}/>
       <footer className="footer">
         <p>Copyright © 2022 Sown App</p>
