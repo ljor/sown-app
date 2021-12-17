@@ -2,12 +2,16 @@ import '../App.css'
 import React from 'react'
 import logo from '../assets/sown-logo.png'
 
-function Header({userData}) {
+function Header({userData, handleLogout}) {
 
-    const login = () => {
+    const logout = () => {
+        handleLogout()
+    }
+
+    const loginBtnCheck = () => {
         if (userData) {
             return (
-                <button className="nav-btn">Logout</button>
+                <button className="nav-btn" onClick={logout}>Logout</button>
             )
         } else {
             return(
@@ -23,7 +27,7 @@ function Header({userData}) {
                 <nav>
                     <img src={logo} alt='Sown' className="logo"/>
                     <div className="nav-btn-container">
-                        {login()}
+                        {loginBtnCheck()}
                     </div>
                 </nav>
             </header>

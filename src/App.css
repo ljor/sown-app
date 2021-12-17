@@ -61,6 +61,9 @@ nav {
   display: flex;
   align-items: flex-end;
 }
+.seed-list-div:hover {
+  cursor: pointer;
+}
 
 .seed-list-text-div {
   width: 100%;
@@ -84,7 +87,7 @@ nav {
   padding: 10px;
   background-color: #85b17d;
   font-family: 'Tajawal', sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   border: none;
 }
 
