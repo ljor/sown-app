@@ -1,11 +1,12 @@
 import '../App.css'
+import React from 'react'
 
 function Categories({seedData}) {
     return (
         <div>
-            <div className='seed-container'>
+            <div className="seed-container">
                 {seedData.map(seed => (
-                        <div key={seed.id} className='seed-list-div' style={{backgroundImage: `url(${seed.img})`}}>   
+                        <div key={seed.id} className="seed-list-div" style={{backgroundImage: `url(${seed.img})`}}>   
                             <div className="seed-list-text-div"><h3>{seed.name}</h3></div>
                         </div>
                 ))}
