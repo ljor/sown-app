@@ -10,7 +10,7 @@ function RegisterForm() {
                 <label htmlFor="email">Email: </label>
                 <input type="text" id="email" name="email"/> <br/>
                 <label htmlFor="zip">Zipcode: </label>
-                <input type="text" id="zip" name="zip"/> <br/>
+                <input type="number" id="zip" name="zip" pattern="[0-9]*"/> <br/>
                 <label htmlFor="name">Password: </label>
                 <input type="password" id="password" name="password"/> <br/>
                 <input type="submit" value="Login" />
