@@ -31,7 +31,7 @@ function AddSeedForm() {
                 <label htmlFor="description">Seed Description: </label>
                 <input type="textarea" id="description" name="description" value="set-to-event"/> <br/>
                 
-                <input type="submit" value="Submit"/>   
+                <input type="submit" value="Submit" className="submit-btn"/>   
             </form>
         </div>
     )

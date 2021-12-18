@@ -24,7 +24,7 @@ function RegisterForm({handleRegister}) {
                 <label htmlFor="name">Password: </label>
                 <input type="password" id="password" name="password" {...register("password")}/> <br/>
                 
-                <input type="submit" value="Register" />
+                <input type="submit" value="Register" className="submit-btn"/>
             </form>
         </div>
     )

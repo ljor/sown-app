@@ -1,3 +1,9 @@
+h2 {
+  font-size: 24px;
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+}
+
 h3 {
   color: #ffffff;
   font-family: 'Manrope', sans-serif;
@@ -15,6 +21,16 @@ header {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+input {
+  border-style: outset;
+  border-color: #4e694a;
+  border-width: 1px;
+  height: 35px;
+  width: 95%;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
 img {
   margin: 0;
   padding: 0;
@@ -25,6 +41,8 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+
+
 
 .App {
   text-align: center;
@@ -102,4 +120,38 @@ nav {
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background-color: #85b17d;
+  border: 1px solid black;
+  min-height: 35%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-header-div {
+  border-bottom: 2px solid #4e694a;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-btn {
+    width: 15vw;
+    padding-right: 20px;
+  }
 }

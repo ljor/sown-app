@@ -7,7 +7,7 @@ function ZipcodeForm() {
                 <label htmlFor="zip">Zipcode: </label>
                 <input type="text" id="zip" name="zip"/> <br/>
                 
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" className="submit-btn"/>
             </form>
         </div>
     )
