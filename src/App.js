@@ -7,21 +7,36 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import ZipcodeForm from './components/ZipcodeForm';
 import AddSeedForm from './components/AddSeedForm';
+import SowDates from './components/SowDates';
 
 function App() {
   const [seedData, setSeedData] = useState([])
   const [userData, setUserData] = useState(false)
   const [newSeedData, setNewSeedData] = useState([])
-  const [zipcodeData, setZipcodeData] = useState(77005)
+  const [zipcodeData, setZipcodeData] = useState({zip: 77005})
   const [loginDisplay, setLoginDisplay] = useState(false)
   const [registerDisplay, setRegisterDisplay] = useState(false)
   const [addSeedDisplay, setAddSeedDisplay] = useState(false)
+  const [lastFrostDate, setLastFrostDate] = useState(null)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/seeds/`)
           .then(response => setSeedData(response.data.data))
           .catch(error => console.log(error))
     }, [])
+
+    useEffect(() => {
+      console.log(zipcodeData)
+      console.log(typeof(zipcodeData))
+      
+      axios.get(`${process.env.REACT_APP_API_URL_BASE}${zipcodeData.zip}${process.env.REACT_APP_API_URL_TAIL}`, {
+          headers: {
+              token: `${process.env.REACT_APP_WEB_TOKEN}`
+          }
+      })
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+  }, [zipcodeData])
 
     const handleLogoutClick = () => {
       axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/users/logout`)
@@ -57,15 +72,7 @@ function App() {
 
     const handleAddSeed = async (data) => {
       await setNewSeedData(data)
-      const json = JSON.stringify({'name': newSeedData.name, 
-      'category': newSeedData.category,
-      'indoor_sow_start': parseInt(newSeedData.indoor_sow_start),
-      'indoor_sow_end': parseInt(newSeedData.indoor_sow_end),
-      'outdoor_sow_start': parseInt(newSeedData.outdoor_sow_start),
-      'outdoor_sow_end': parseInt(newSeedData.outdoor_sow_end),
-      'description': newSeedData.description,
-      'maturity': newSeedData.maturity})
-      axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/seeds`, json
+      axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/seeds`, {...newSeedData}
     ) 
       .then((response) => {
           console.log(response)
@@ -119,7 +126,19 @@ function App() {
             </div>
         </nav>
       </header>
-      <ZipcodeForm />
+      <div className="content-container">
+        <div className="text-div">
+            <h1>You can start planting indoors!</h1>
+            <p><strong>Lettuce:</strong> April 13, 2022</p>
+            <p><strong>Tomato:</strong> February 12, 2022</p>
+            <p><strong>Eggplant:</strong> April 17, 2022</p>
+            <p><strong>Pepper:</strong> April 8, 2022</p>
+            <p><strong>Carrot:</strong> May 1, 2022</p>
+        </div>
+        <div>
+          <ZipcodeForm handleZip={updateZipcode}/>
+        </div>
+      </div>
       <Categories seedData={seedData} />
       {loginDisplay ? <LoginForm handleLogin={handleLogin} /> : null}
       {registerDisplay ? <RegisterForm handleRegister={handleRegister} /> : null}

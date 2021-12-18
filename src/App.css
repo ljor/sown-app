@@ -3,6 +3,10 @@ p {
   margin-right: 10px;
 }
 
+h1 {
+  color: #4e694a;
+}
+
 h2 {
   font-size: 24px;
   font-family: 'Manrope', sans-serif;
@@ -196,7 +200,9 @@ nav {
 .small-input {
   width: 40%;
 }
-
+.text-div {
+  margin-bottom: 25px;
+}
 
 @media only screen and (max-width: 768px) {
   .nav-btn {

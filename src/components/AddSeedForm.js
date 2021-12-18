@@ -27,10 +27,10 @@ function AddSeedForm({handleAddSeed}) {
                     <label htmlFor="indoor_sow_end">Indoor sow start latest week before last frost:</label>
                     <input type="number" id="indoor_sow_end" name="indoor_sow_end" pattern="[0-9]*" className="add-seed-input small-input" {...register("indoor_sow_end")}/> <br/>
 
-                    <label htmlFor="outdoor_sow_start">Outdoor sow start earliest week before last frost: </label>
+                    <label htmlFor="outdoor_sow_start">Outdoor sow start earliest week after last frost: </label>
                     <input type="number" id="outdoor_sow_start" name="outdoor_sow_start" pattern="[0-9]*" className="add-seed-input small-input"{...register("outdoor_sow_start")}/> <br/>
 
-                    <label htmlFor="outdoor_sow_end">Outdoor sow start latest week before last frost: </label>
+                    <label htmlFor="outdoor_sow_end">Outdoor sow start latest week after last frost: </label>
                     <input type="number" id="outdoor_sow_end" name="outdoor_sow_end" pattern="[0-9]*" className="add-seed-input small-input" {...register("outdoor_sow_end")}/> <br/>
 
                     <label htmlFor="img">Photo URL: </label>
