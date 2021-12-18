@@ -5,6 +5,7 @@ import axios from 'axios';
 import Categories from './components/Categories';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
+import ZipcodeForm from './components/ZipcodeForm';
 
 function App() {
   const [seedData, setSeedData] = useState([])
@@ -16,7 +17,6 @@ function App() {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/seeds/`)
           .then(response => setSeedData(response.data.data))
-          .then(updateZipcode())
           .catch(error => console.log(error))
     }, [])
 
@@ -34,6 +34,7 @@ function App() {
           console.log(response)
           if (response.status === 200) {
             toggleLogin()
+            updateZipcode(response.data.data.zip)
           }
         })
         .catch(error => console(error))
@@ -90,6 +91,7 @@ function App() {
             </div>
         </nav>
       </header>
+      <ZipcodeForm />
       {loginDisplay ? <LoginForm handleLogin={handleLogin} /> : null}
       {registerDisplay ? <RegisterForm handleRegister={handleRegister} /> : null}
       <Categories seedData={seedData} />

@@ -1,3 +1,8 @@
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 h2 {
   font-size: 24px;
   font-family: 'Manrope', sans-serif;
@@ -94,6 +99,13 @@ nav {
   justify-content: flex-end;
 }
 
+.seed-description{
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
 .logo {
   height: 9vh;
   margin-top: 1vh;
@@ -165,6 +177,7 @@ nav {
 .submit-btn:hover {
   animation: submit-hover 3s ease-in-out alternate;
 }
+
 
 @media only screen and (max-width: 768px) {
   .nav-btn {
