@@ -11,6 +11,7 @@ function App() {
   const [userData, setUserData] = useState(false)
   const [zipcodeData, setZipcodeData] = useState(77005)
   const [loginDisplay, setLoginDisplay] = useState(false)
+  const [registerDisplay, setRegisterDisplay] = useState(false)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/seeds/`)
@@ -41,7 +42,12 @@ function App() {
     const handleRegister = async (data) => {
       await setUserData(data)
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/users/register`, {...userData})
-        .then(response => console.log(response))
+        .then((response) => {
+          console.log(response)
+          if (response.status === 201) {
+            toggleRegister()
+          }
+        })
         .catch(error => console(error))
     }
 
@@ -58,14 +64,20 @@ function App() {
           return(
               <div>
                   <button className="nav-btn" onClick={toggleLogin}>Login</button>
-                  <button className="nav-btn">Register</button>
+                  <button className="nav-btn" onClick={toggleRegister}>Register</button>
               </div>
           )
       }
   }
 
   const toggleLogin = () => {
+    if (registerDisplay) setRegisterDisplay(false)
     loginDisplay ? setLoginDisplay(false) : setLoginDisplay(true)
+  }
+
+  const toggleRegister = () => {
+    if (loginDisplay) setLoginDisplay(false)
+    registerDisplay ? setRegisterDisplay(false) : setRegisterDisplay(true)
   }
 
   return (
@@ -79,7 +91,7 @@ function App() {
         </nav>
       </header>
       {loginDisplay ? <LoginForm handleLogin={handleLogin} /> : null}
-      {/* <RegisterForm handleRegister={handleRegister} /> */}
+      {registerDisplay ? <RegisterForm handleRegister={handleRegister} /> : null}
       <Categories seedData={seedData} />
       <footer className="footer">
         <p>Copyright © {new Date().getFullYear()} Sown App</p>
