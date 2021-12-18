@@ -48,8 +48,6 @@ nav {
   justify-content: space-between;
 }
 
-
-
 .App {
   text-align: center;
   width: 100%;
@@ -85,6 +83,7 @@ nav {
   display: flex;
   align-items: flex-end;
 }
+
 .seed-list-div:hover {
   cursor: pointer;
 }
@@ -150,9 +149,11 @@ nav {
   background-color: #85b17d;
   border: 1px solid black;
   min-height: 35%;
+  max-height: 85%;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: auto;
 }
 
 .modal-header-div {
@@ -162,11 +163,18 @@ nav {
   width: 100%;
 }
 
-.submit-btn {
+.btn {
+  width: 35%;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.submit-btn, .btn {
   color: white;
   background-color: #4e694a;
   border-style: none;
-  height: 6vh;
+  min-height: 6vh;
   padding: 5px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -174,8 +182,19 @@ nav {
   cursor: pointer;
 }
 
-.submit-btn:hover {
+.submit-btn:hover, .btn:hover {
   animation: submit-hover 3s ease-in-out alternate;
+}
+
+.add-seed-input {
+  height: 22px;
+  margin-bottom: 5px;;
+  display: inline-block;
+
+}
+
+.small-input {
+  width: 40%;
 }
 
 
