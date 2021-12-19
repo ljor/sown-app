@@ -1,12 +1,38 @@
-# Getting Started with Create React App
+# Sown App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sown is a seed starting planner that helps users figure out when to start planting seeds based on their last frost dates (through zip code) and reminds them in the appropriate time-frame. The user will select the seeds they are planning to grow for the season from the database, or add their own (if none are available), and the app will save and display when to start planting the seeds.
 
-## Available Scripts
+The working app can be found at:
+[https://sown-app.herokuapp.com/](https://sown-app.herokuapp.com/)
 
-In the project directory, you can run:
+The github repository for the backend of this app can be found at:
+[https://github.com/ljor/sown-app-backend](https://github.com/ljor/sown-app-backend)
 
-### `npm start`
+## Technologies Used
+
+This app was created using React.js and Flask
+
+## Installation
+
+In the project directory, install any dependencies by running:
+```
+$ npm install
+```
+
+Before you can run the app locally, you will need to create your own .env file that includes the following variables:
+
+*REACT_APP_BASE_URL* set it to equal https://sown-app-db.herokuapp.com (the deployed backend) OR http://localhost:8000 if you are running the backend locally straight from the repository (found at [https://github.com/ljor/sown-app-backend](https://github.com/ljor/sown-app-backend))
+
+*REACT_APP_WEB_TOKEN* set this to equal your free webservices token provided by NOAA at [https://www.ncdc.noaa.gov/cdo-web/token](https://www.ncdc.noaa.gov/cdo-web/token)
+
+*REACT_APP_API_URL_BASE* set it to equal 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=NORMAL_ANN&datatypeid=ANN-TMIN-PRBLST-T36FP30&locationid=ZIP:' (the starting search query for the NOAA database)
+
+*REACT_APP_API_URL_TAIL* set it to equal '&startdate=2010-01-01&enddate=2019-01-01'(the ending search query for the NOAA database)
+
+Once you've filled out the .env variables, you can now run the app locally by typing:
+```
+$ npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,58 +40,31 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## User Stories
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- As a gardener, I want to be able to keep track of when to sow the seeds I want to grow in my garden so that I can get them started on time
+- As a planner, I want to know when to get my seeds started so I can plan the time to do that
 
-### `npm run build`
+## Wireframes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![IMG_3049](https://user-images.githubusercontent.com/85857768/146685101-746984b0-bfb9-4670-80be-f04c4e1e9d76.JPG)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Entity-Relationship Diagram
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screen Shot 2021-12-19 at 2 08 44 PM](https://user-images.githubusercontent.com/85857768/146688346-44651f38-1333-4856-96cc-d9f5f2c3b23b.png)
 
-### `npm run eject`
+## Current Issues
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- API data from NOAA not consistently being pulled (further investigation has yielded that not not every zipcode pulls data, I will need to create a function that will convert an input zipcode to the nearest one that does work)
+- Creating a new seed is encountering CORS error (redirection not allowed)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Plans
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-#sown-app
+- Improvements to the database.
+- Improvements to the user interface and dashboard that includes:
+    - A way to exit a modal you don't want to be in
+    - Adding a calendar view, where users can get an overview of the dates they need to start sowing
+    - A timeline overview table display
+    - Search/filtering features
+- Mobile reminder features, where a user can be notified when they can start planting the seeds of plants they want to grow in their garden
+- Print options for users that want to print out their planned seeds calendar
