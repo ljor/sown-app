@@ -21,13 +21,13 @@ $ npm install
 
 Before you can run the app locally, you will need to create your own .env file that includes the following variables:
 
-*REACT_APP_BASE_URL* set it to equal https://sown-app-db.herokuapp.com (the deployed backend) OR http://localhost:8000 if you are running the backend locally straight from the repository (found at [https://github.com/ljor/sown-app-backend](https://github.com/ljor/sown-app-backend))
+*REACT_APP_BASE_URL* set it to equal `https://sown-app-db.herokuapp.com` (the deployed backend) OR `http://localhost:8000` if you are running the backend locally straight from the repository (found at [https://github.com/ljor/sown-app-backend](https://github.com/ljor/sown-app-backend))
 
 *REACT_APP_WEB_TOKEN* set this to equal your free webservices token provided by NOAA at [https://www.ncdc.noaa.gov/cdo-web/token](https://www.ncdc.noaa.gov/cdo-web/token)
 
-*REACT_APP_API_URL_BASE* set it to equal 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=NORMAL_ANN&datatypeid=ANN-TMIN-PRBLST-T36FP30&locationid=ZIP:' (the starting search query for the NOAA database)
+*REACT_APP_API_URL_BASE* set it to equal `https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=NORMAL_ANN&datatypeid=ANN-TMIN-PRBLST-T36FP30&locationid=ZIP:` (the starting search query for the average last frost date in the NOAA database)
 
-*REACT_APP_API_URL_TAIL* set it to equal '&startdate=2010-01-01&enddate=2019-01-01'(the ending search query for the NOAA database)
+*REACT_APP_API_URL_TAIL* set it to equal `&startdate=2010-01-01&enddate=2019-01-01`(the ending search query for for the average last frost date the NOAA database)
 
 Once you've filled out the .env variables, you can now run the app locally by typing:
 ```
