@@ -7,13 +7,12 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import ZipcodeForm from './components/ZipcodeForm';
 import AddSeedForm from './components/AddSeedForm';
-import SowDates from './components/SowDates';
 
 function App() {
   const [seedData, setSeedData] = useState([])
   const [userData, setUserData] = useState(false)
   const [newSeedData, setNewSeedData] = useState([])
-  const [zipcodeData, setZipcodeData] = useState({zip: 77005})
+  const [zipcodeData, setZipcodeData] = useState({zip: 49424})
   const [loginDisplay, setLoginDisplay] = useState(false)
   const [registerDisplay, setRegisterDisplay] = useState(false)
   const [addSeedDisplay, setAddSeedDisplay] = useState(false)
